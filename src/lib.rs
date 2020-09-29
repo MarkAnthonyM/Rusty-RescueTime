@@ -1,3 +1,4 @@
+pub mod analytic_data;
 pub mod daily_summary;
 
 #[cfg(test)]
