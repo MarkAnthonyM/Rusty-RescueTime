@@ -22,6 +22,7 @@ pub struct DailySummary {
     day_fifteen: SummaryData,
 }
 
+// Structure represents data of individual days. Use as field type of DailySummary struct
 #[derive(Debug, Deserialize, Serialize)]
 pub struct SummaryData {
     id: u32,
