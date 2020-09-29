@@ -1,3 +1,5 @@
+pub mod daily_summary;
+
 #[cfg(test)]
 mod tests {
     #[test]
