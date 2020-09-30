@@ -1,30 +1,9 @@
 use reqwest;
 use serde::{ Deserialize, Serialize };
 
-// Structure representing summary of time data logged during the previous two weeks. Does not include the current day.
-//TODO: Come back to this struct and see if there might be another type that can be used for data deserialization. HashMap maybe?
+// Structure represents summary data of individual days.
 #[derive(Debug, Deserialize, Serialize)]
 pub struct DailySummary {
-    day_one: SummaryData,
-    day_two: SummaryData,
-    day_three: SummaryData,
-    day_four: SummaryData,
-    day_five: SummaryData,
-    day_six: SummaryData,
-    day_seven: SummaryData,
-    day_eight: SummaryData,
-    day_nine: SummaryData,
-    day_ten: SummaryData,
-    day_eleven: SummaryData,
-    day_twelve: SummaryData,
-    day_thirteen: SummaryData,
-    day_fourteen: SummaryData,
-    day_fifteen: SummaryData,
-}
-
-// Structure represents data of individual days. Use as field type of DailySummary struct
-#[derive(Debug, Deserialize, Serialize)]
-pub struct SummaryData {
     id: u32,
     date: String,
     productivity_pulse: u32,
@@ -87,13 +66,15 @@ pub struct SummaryData {
 }
 
 impl DailySummary {
-    // Fetch data from RescueTime daily_summary API.
+    //TODO: Fix up code comment here
+    // Fetch summary of time data logged during the previous two weeks from RescueTime daily_summary API. Does not include the current day.
     //TODO: Currently takes API Key as an argument. Okay for development, but need to eventually switch to Oauth2  
-    pub fn fetch(key: &String) -> Result<DailySummary, reqwest::Error> {
+    pub fn fetch(key: &String) -> Result<Vec<DailySummary>, reqwest::Error> {
         let request_url = format!("https://www.rescuetime.com/anapi/daily_summary_feed?key={}", key);
 
         //TODO: Currently using blocking get method. Should switch to async eventually.
-        let response = reqwest::blocking::get(&request_url)?.json::<DailySummary>();
+        // Fetch daily summary data from rescuetime api and store in Vector wrapped in Result type.  
+        let response = reqwest::blocking::get(&request_url)?.json::<Vec<DailySummary>>();
 
         response
     }
