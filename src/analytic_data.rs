@@ -12,6 +12,13 @@ struct RowCell {
     productivity: i32,
 }
 
+#[derive(Debug, Deserialize, Serialize)]
+#[serde(untagged)]
+enum QueryKind {
+    Rank(Rank),
+    Interval(Interval),
+}
+
 // Struct represents data fetched from RescueTime analytic data API endpoint
 #[derive(Debug, Deserialize, Serialize)]
 pub struct AnalyticData {
