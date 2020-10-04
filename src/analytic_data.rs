@@ -45,6 +45,7 @@ struct RestrictProductivity {
 enum QueryKind {
     Rank(Rank),
     Interval(Interval),
+    Restrict(RestrictProductivity),
 }
 
 // Struct represents data fetched from RescueTime analytic data API endpoint
