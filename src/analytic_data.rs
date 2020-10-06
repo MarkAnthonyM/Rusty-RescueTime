@@ -57,11 +57,6 @@ pub struct AnalyticData {
 
 }
 
-struct RescueTime {
-    perspective: Option<String>,
-    resolution: Option<String>,
-}
-
 impl AnalyticData {
     // Send request to RescueTime analytic data API endpoint, and return deserialized response.
     //TODO: switch out queries and format parameters with enum types
