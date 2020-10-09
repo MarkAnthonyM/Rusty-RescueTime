@@ -15,3 +15,8 @@ enum ResolutionOptions {
     Hour,
     Minute,
 }
+
+struct Parameters {
+    perspective: Option<QueryParameters>,
+    resolution_time: Option<QueryParameters>,
+}
