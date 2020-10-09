@@ -7,3 +7,11 @@ enum PerspectiveOptions {
     Rank,
     Interval,
 }
+
+enum ResolutionOptions {
+    Month,
+    Week,
+    Day,
+    Hour,
+    Minute,
+}
