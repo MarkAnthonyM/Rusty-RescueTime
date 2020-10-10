@@ -8,6 +8,7 @@ enum PerspectiveOptions {
     Interval,
 }
 
+#[derive(IntoStaticStr)]
 enum ResolutionOptions {
     Month,
     Week,
