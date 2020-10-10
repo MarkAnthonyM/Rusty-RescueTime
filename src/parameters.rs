@@ -17,7 +17,7 @@ enum ResolutionOptions {
     Minute,
 }
 
-struct Parameters {
+pub struct Parameters {
     perspective: Option<QueryParameters>,
     resolution_time: Option<QueryParameters>,
 }
