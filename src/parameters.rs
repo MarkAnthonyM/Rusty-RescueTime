@@ -22,6 +22,15 @@ pub enum ResolutionOptions {
     Minute,
 }
 
+impl ResolutionOptions {
+    pub fn new(option: ResolutionOptions) -> QueryParameter<ResolutionOptions> {
+        QueryParameter {
+            parameter_name: "resolution",
+            parameter_option: option,
+        }
+    }
+}
+
 pub struct QueryParameter<T> {
     parameter_name: &'static str,
     parameter_option: T,
