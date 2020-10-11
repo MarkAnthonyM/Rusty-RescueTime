@@ -19,7 +19,7 @@ pub enum ResolutionOptions {
 }
 
 pub struct QueryParameter<T> {
-    parameter_name: String,
+    parameter_name: &'static str,
     parameter_option: T,
 }
 
