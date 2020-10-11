@@ -34,7 +34,7 @@ impl<T> QueryParameter<T> {
 
 pub struct Parameters {
     pub perspective: Option<QueryParameter<PerspectiveOptions>>,
-    pub resolution_time: Option<QueryParameter<ResolutionOptions>>,
+    pub resolution: Option<QueryParameter<ResolutionOptions>>,
 }
 
 impl Parameters {
