@@ -9,6 +9,15 @@ pub enum PerspectiveOptions {
     Interval,
 }
 
+impl PerspectiveOptions {
+    pub fn new(option: PerspectiveOptions) -> QueryParameter<PerspectiveOptions> {
+        QueryParameter {
+            parameter_name: "perspective",
+            parameter_option: option,
+        }
+    }
+}
+
 #[derive(IntoStaticStr)]
 pub enum ResolutionOptions {
     Month,
