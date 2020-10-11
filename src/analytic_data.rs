@@ -1,3 +1,4 @@
+use crate::parameters::Parameters;
 use serde::{ Deserialize, Serialize };
 
 // Struct represents individual cell data related to the row_headers field of the AnalyticData struct.
@@ -84,5 +85,15 @@ impl AnalyticData {
         let response = reqwest::blocking::get(&request_url)?.json::<AnalyticData>();
 
         response
+    }
+
+    pub fn proto_fetch(key: &String, param: Parameters, format: String) {
+        let request_url = param.construct_query(key, format);
+
+        // let response = reqwest::blocking::get(&request_url)?.json::<AnalyticData>();
+
+        // response
+
+        println!("{}", request_url);
     }
 }
