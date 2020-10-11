@@ -1,8 +1,3 @@
-// enum QueryParameters{
-//     Perspective(PerspectiveOptions),
-//     Resolution(ResolutionOptions),
-// }
-
 #[derive(IntoStaticStr)]
 pub enum PerspectiveOptions {
     Rank,
