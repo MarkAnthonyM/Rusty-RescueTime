@@ -24,7 +24,7 @@ pub struct QueryParameter<T> {
 }
 
 impl<T> QueryParameter<T> {
-    pub fn new(name: String, option: T) -> Self {
+    pub fn new(name: &'static str, option: T) -> Self {
         QueryParameter {
             parameter_name: name,
             parameter_option: option,
