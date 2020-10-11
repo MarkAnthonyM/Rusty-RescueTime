@@ -18,6 +18,11 @@ pub enum ResolutionOptions {
     Minute,
 }
 
+pub struct QueryParameter<T> {
+    parameter_name: String,
+    parameter_option: T,
+}
+
 pub struct Parameters {
     pub perspective: Option<PerspectiveOptions>,
     pub resolution_time: Option<ResolutionOptions>,
