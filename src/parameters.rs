@@ -32,15 +32,6 @@ pub struct QueryParameter<T> {
     parameter_option: T,
 }
 
-impl<T> QueryParameter<T> {
-    pub fn new(name: &'static str, option: T) -> Self {
-        QueryParameter {
-            parameter_name: name,
-            parameter_option: option,
-        }
-    }
-}
-
 pub struct Parameters {
     pub perspective: Option<QueryParameter<PerspectiveOptions>>,
     pub resolution: Option<QueryParameter<ResolutionOptions>>,
