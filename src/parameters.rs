@@ -24,8 +24,8 @@ pub struct QueryParameter<T> {
 }
 
 pub struct Parameters {
-    pub perspective: Option<PerspectiveOptions>,
-    pub resolution_time: Option<ResolutionOptions>,
+    pub perspective: Option<QueryParameter<PerspectiveOptions>>,
+    pub resolution_time: Option<QueryParameter<ResolutionOptions>>,
 }
 
 impl Parameters {
