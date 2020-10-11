@@ -38,6 +38,15 @@ pub struct Parameters {
 }
 
 impl Parameters {
+    pub fn new(perspective: Option<QueryParameter<PerspectiveOptions>>, resolution: Option<QueryParameter<ResolutionOptions>>) -> Self {
+        Parameters {
+            perspective,
+            resolution,
+        }
+    }
+}
+
+impl Parameters {
     pub fn construct_query(self, key: &String, format: String) -> String {
         let perspective_parameter: &'static str  = self.perspective.unwrap().parameter_option.into();
         let url = format!("https://www.rescuetime.com/anapi/data?key={}&perspective={}&format={}", key, perspective_parameter, format);
