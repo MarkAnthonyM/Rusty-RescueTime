@@ -49,6 +49,20 @@ impl Parameters {
         }
     }
 
+    pub fn construct_query(self, key: &String, format: String) -> String {
+        let mut url = format!("https://www.rescuetime.com/anapi/data?key={}", key);
+        let query_parameters = self.process_fields();
+
+        for parameter in query_parameters {
+            url.push_str(&parameter);
+        }
+
+        let format_type = format!("&format={}", format);
+        url.push_str(&format_type);
+
+        url
+    }
+
     fn process_fields(self) -> Vec<String> {
         let mut query_parameters = Vec::new();
 
@@ -69,21 +83,5 @@ impl Parameters {
         }
 
         query_parameters
-    }
-}
-
-impl Parameters {
-    pub fn construct_query(self, key: &String, format: String) -> String {
-        let mut url = format!("https://www.rescuetime.com/anapi/data?key={}", key);
-        let query_parameters = self.process_fields();
-
-        for parameter in query_parameters {
-            url.push_str(&parameter);
-        }
-
-        let format_type = format!("&format={}", format);
-        url.push_str(&format_type);
-
-        url
     }
 }
