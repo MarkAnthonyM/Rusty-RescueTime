@@ -70,7 +70,7 @@ impl Parameters {
             let parameter_struct = self.perspective.unwrap();
             let parameter_name = parameter_struct.parameter_name;
             let parameter_option: &'static str = parameter_struct.parameter_option.into();
-            let parameter_string = format!("&{}={}", parameter_name, parameter_option);
+            let parameter_string = format!("&{}={}", parameter_name, parameter_option.to_lowercase());
             query_parameters.push(parameter_string);
         }
 
@@ -78,7 +78,7 @@ impl Parameters {
             let parameter_struct = self.resolution.unwrap();
             let parameter_name = parameter_struct.parameter_name;
             let parameter_option: &'static str = parameter_struct.parameter_option.into();
-            let parameter_string = format!("&{}={}", parameter_name, parameter_option);
+            let parameter_string = format!("&{}={}", parameter_name, parameter_option.to_lowercase());
             query_parameters.push(parameter_string);
         }
 
