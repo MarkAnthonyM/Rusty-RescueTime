@@ -52,8 +52,15 @@ impl Parameters {
 
 impl Parameters {
     pub fn construct_query(self, key: &String, format: String) -> String {
-        let perspective_parameter: &'static str  = self.perspective.unwrap().parameter_option.into();
-        let url = format!("https://www.rescuetime.com/anapi/data?key={}&perspective={}&format={}", key, perspective_parameter, format);
+        let mut url = format!("https://www.rescuetime.com/anapi/data?key={}", key);
+        let query_parameters = self.process_fields();
+
+        for parameter in query_parameters {
+            url.push_str(&parameter);
+        }
+
+        let format_type = format!("&format={}", format);
+        url.push_str(&format_type);
 
         url
     }
