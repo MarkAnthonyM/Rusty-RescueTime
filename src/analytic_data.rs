@@ -62,7 +62,6 @@ pub struct AnalyticData {
 
 impl AnalyticData {
     // Send request to RescueTime analytic data API endpoint, and return deserialized response.
-    //TODO: switch out queries and format parameters with enum types
     pub fn fetch(key: &String, param: Parameters, format: String) -> Result<AnalyticData, reqwest::Error> {
         let request_url = param.construct_query(key, format);
 
