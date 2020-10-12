@@ -63,37 +63,11 @@ pub struct AnalyticData {
 impl AnalyticData {
     // Send request to RescueTime analytic data API endpoint, and return deserialized response.
     //TODO: switch out queries and format parameters with enum types
-    pub fn fetch(key: &String, queries: Option<Vec<String>>, format: String) -> Result<AnalyticData, reqwest::Error> {
-        let mut request_url = format!("https://www.rescuetime.com/anapi/data?key={}", key);
-        
-        match queries {
-            Some(queries) => {
-                for query in queries {
-                    let str = format!("&{}", query);
-                    request_url.push_str(&str);
-                }
-
-                let data_format = format!("&format={}", format);
-                request_url.push_str(&data_format);
-            },
-            None => {
-                let data_format = format!("&format={}", format);
-                request_url.push_str(&data_format);
-            },
-        }
-
-        let response = reqwest::blocking::get(&request_url)?.json::<AnalyticData>();
-
-        response
-    }
-
-    pub fn proto_fetch(key: &String, param: Parameters, format: String) {
+    pub fn fetch(key: &String, param: Parameters, format: String) -> Result<AnalyticData, reqwest::Error> {
         let request_url = param.construct_query(key, format);
 
-        // let response = reqwest::blocking::get(&request_url)?.json::<AnalyticData>();
-
-        // response
-
-        println!("{}", request_url);
+        let response = reqwest::blocking::get(&request_url)?.json::<AnalyticData>();
+        
+        response
     }
 }
