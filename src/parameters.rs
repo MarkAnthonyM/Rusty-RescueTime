@@ -25,7 +25,7 @@ pub enum ResolutionOptions {
 impl ResolutionOptions {
     pub fn new(option: ResolutionOptions) -> QueryParameter<ResolutionOptions> {
         QueryParameter {
-            parameter_name: "resolution",
+            parameter_name: "resolution_time",
             parameter_option: option,
         }
     }
