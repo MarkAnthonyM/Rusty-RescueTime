@@ -31,12 +31,12 @@ impl ResolutionOptions {
     }
 }
 
-struct RestrictDate {
+pub struct RestrictData {
     begin_date: &'static str,
     end_date: &'static str,
 }
 
-impl RestrictDate {
+impl RestrictData {
     pub fn new(begin_date: &'static str, end_date: &'static str) -> (QueryParameter<&'static str>, QueryParameter<&'static str>) {
         let begin = QueryParameter {
             parameter_name: "restrict_begin",
