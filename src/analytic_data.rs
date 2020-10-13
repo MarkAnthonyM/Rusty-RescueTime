@@ -44,9 +44,12 @@ struct RestrictProductivity {
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(untagged)]
 enum QueryKind {
-    Rank(Rank),
-    Interval(Interval),
-    Restrict(RestrictProductivity),
+    SizeFourInt(SizeFour<i32>),
+    SizeFourString(SizeFour<String>),
+    SizeSevenInt(SizeSeven<i32>),
+    SizeSevenString(SizeSeven<String>),
+    SizeSixInt(SizeSix<i32>),
+    SizeSixString(SizeSix<String>),
 }
 
 // Struct represents data fetched from RescueTime analytic data API endpoint
