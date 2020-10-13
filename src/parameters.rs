@@ -39,7 +39,7 @@ pub enum Restrict {
 }
 
 #[derive(IntoStaticStr)]
-pub enum RestrictKind {
+pub enum RestrictOptions {
     Category,
     Activity,
     Productivity,
