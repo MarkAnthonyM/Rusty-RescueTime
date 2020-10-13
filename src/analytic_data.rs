@@ -48,7 +48,7 @@ enum QueryKind {
 pub struct AnalyticData {
     notes: String,
     row_headers: Vec<String>,
-    rows: Vec<RowCell>,
+    rows: Vec<QueryKind>,
 
 }
 
