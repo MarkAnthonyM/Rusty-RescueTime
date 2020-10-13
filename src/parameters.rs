@@ -31,6 +31,13 @@ impl ResolutionOptions {
     }
 }
 
+//TODO: Find way to rename enum variants
+#[derive(IntoStaticStr)]
+pub enum Restrict {
+    restrict_begin(String),
+    restrict_end(String),
+}
+
 pub struct QueryParameter<T> {
     parameter_name: &'static str,
     parameter_option: T,
