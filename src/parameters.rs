@@ -46,6 +46,15 @@ pub enum RestrictKind {
     Document,
 }
 
+impl RestrictOptions {
+    pub fn new(option: RestrictOptions) -> QueryParameter<RestrictOptions> {
+        QueryParameter {
+            parameter_name: "restrict_kind",
+            parameter_option: option,
+        }
+    }
+}
+
 pub struct QueryParameter<T> {
     parameter_name: &'static str,
     parameter_option: T,
