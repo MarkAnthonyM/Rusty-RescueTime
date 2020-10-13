@@ -31,6 +31,12 @@ impl ResolutionOptions {
     }
 }
 
+pub enum RestrictData {
+    Date(String, String),
+    Thing(String),
+    Thingy(String),
+}
+
 // pub struct RestrictData {
 //     begin_date: &'static str,
 //     end_date: &'static str,
