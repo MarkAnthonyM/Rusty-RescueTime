@@ -23,6 +23,16 @@ struct SizeSeven<T> {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
+struct SizeSix<T> {
+    perspective: T,
+    time_spent: i32,
+    number_of_people: i32,
+    activity: String,
+    category: String,
+    productivity: i32,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
 #[serde(untagged)]
 enum QueryKind {
     SizeFourInt(SizeFour<i32>),
