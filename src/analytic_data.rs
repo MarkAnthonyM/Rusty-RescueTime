@@ -3,6 +3,13 @@ use serde::{ Deserialize, Serialize };
 
 // Struct represents individual cell data related to the row_headers field of the AnalyticData struct.
 //TODO: Evaulate other possible options of modeling structures for data deserialization
+#[derive(Debug, Deserialize, Serialize)]
+struct SizeFour<T> {
+    perspective: T,
+    time_spent: i32,
+    number_of_people: i32,
+    restrict_kind: T,
+}
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(untagged)]
