@@ -38,6 +38,11 @@ pub enum Restrict {
     restrict_end(String),
 }
 
+struct RestrictDates {
+    begin_date: &'static str,
+    end_date: &'static str,
+}
+
 #[derive(IntoStaticStr)]
 pub enum RestrictOptions {
     Category,
