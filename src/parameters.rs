@@ -31,13 +31,6 @@ impl ResolutionOptions {
     }
 }
 
-//TODO: Find way to rename enum variants
-#[derive(IntoStaticStr)]
-pub enum Restrict {
-    restrict_begin(String),
-    restrict_end(String),
-}
-
 struct RestrictDates {
     begin_date: &'static str,
     end_date: &'static str,
