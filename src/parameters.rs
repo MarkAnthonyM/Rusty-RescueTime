@@ -38,6 +38,14 @@ pub enum Restrict {
     restrict_end(String),
 }
 
+#[derive(IntoStaticStr)]
+pub enum RestrictKind {
+    Category,
+    Activity,
+    Productivity,
+    Document,
+}
+
 pub struct QueryParameter<T> {
     parameter_name: &'static str,
     parameter_option: T,
