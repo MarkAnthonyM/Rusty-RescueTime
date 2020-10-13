@@ -77,13 +77,28 @@ pub struct QueryParameter<T> {
 pub struct Parameters {
     pub perspective: Option<QueryParameter<PerspectiveOptions>>,
     pub resolution: Option<QueryParameter<ResolutionOptions>>,
+    pub restrict_date: Option<(QueryParameter<RestrictData>, QueryParameter<RestrictData>)>,
+    pub restrict_kind: Option<QueryParameter<RestrictOptions>>,
+    pub restrict_thing: Option<QueryParameter<RestrictData>>,
+    pub restrict_thingy: Option<QueryParameter<RestrictData>>,
 }
 
 impl Parameters {
-    pub fn new(perspective: Option<QueryParameter<PerspectiveOptions>>, resolution: Option<QueryParameter<ResolutionOptions>>) -> Self {
+    pub fn new(
+        perspective: Option<QueryParameter<PerspectiveOptions>>,
+        resolution: Option<QueryParameter<ResolutionOptions>>,
+        restrict_date: Option<(QueryParameter<RestrictData>, QueryParameter<RestrictData>)>,
+        restrict_kind: Option<QueryParameter<RestrictOptions>>,
+        restrict_thing: Option<QueryParameter<RestrictData>>,
+        restrict_thingy: Option<QueryParameter<RestrictData>>,
+    ) -> Self {
         Parameters {
             perspective,
             resolution,
+            restrict_date,
+            restrict_kind,
+            restrict_thing,
+            restrict_thingy,
         }
     }
 
