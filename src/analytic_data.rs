@@ -2,44 +2,7 @@ use crate::parameters::Parameters;
 use serde::{ Deserialize, Serialize };
 
 // Struct represents individual cell data related to the row_headers field of the AnalyticData struct.
-//TODO: Evaulate other possible options of modeling structures for data deserialization 
-#[derive(Debug, Deserialize, Serialize)]
-struct RowCell {
-    rank: i32,
-    time_spent: i32,
-    number_of_people: i32,
-    activity: String,
-    category: String,
-    productivity: i32,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-struct Rank {
-    rank: i32,
-    time_spent: i32,
-    number_of_people: i32,
-    activity: String,
-    category: String,
-    productivity: i32,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-struct Interval {
-    date: String,
-    time_spent: i32,
-    number_of_people: i32,
-    activity: String,
-    category: String,
-    productivity: i32,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-struct RestrictProductivity {
-    rank: i32,
-    time_spent: i32,
-    number_of_people: i32,
-    productivity: i32,
-}
+//TODO: Evaulate other possible options of modeling structures for data deserialization
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(untagged)]
