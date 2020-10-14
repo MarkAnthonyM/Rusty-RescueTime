@@ -11,6 +11,32 @@ impl PerspectiveOptions {
             parameter_option: option,
         }
     }
+
+    //TODO: Refactor method to cut down on the repetition.
+    fn build_query_string(self) -> String {
+        match self {
+            PerspectiveOptions::Interval => {
+                let query_option: &'static str = self.into();
+                let query_struct = QueryParameter {
+                    parameter_name: "perspective",
+                    parameter_option: query_option,
+                };
+                let query_string = format!("&{}={}", query_struct.parameter_name, query_struct.parameter_option.to_lowercase());
+
+                query_string
+            },
+            PerspectiveOptions::Rank => {
+                let query_option: &'static str = self.into();
+                let query_struct = QueryParameter {
+                    parameter_name: "perspective",
+                    parameter_option: query_option,
+                };
+                let query_string = format!("&{}={}", query_struct.parameter_name, query_struct.parameter_option.to_lowercase());
+
+                query_string
+            }
+        }
+    }
 }
 
 #[derive(IntoStaticStr)]
