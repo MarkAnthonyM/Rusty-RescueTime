@@ -38,6 +38,7 @@ struct SizeSix<T> {
 enum QueryKind {
     SizeFourInt(SizeFour<i32, i32>),
     SizeFourMixed(SizeFour<i32, String>),
+    //TODO: Add <String, i32> variant
     SizeFourString(SizeFour<String, String>),
     SizeSevenInt(SizeSeven<i32>),
     SizeSevenString(SizeSeven<String>),
