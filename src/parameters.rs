@@ -76,6 +76,26 @@ impl RestrictData {
         query_container
     }
 
+    fn process_data(self) -> Result<(QueryParameter<&'static str>, QueryParameter<&'static str>), String> {
+        if let RestrictData::Date(begin_date, end_date) = self {
+            let restrict_begin = QueryParameter {
+                parameter_name: "restrict_begin",
+                parameter_option: begin_date,
+            };
+
+            let restrict_end = QueryParameter {
+                parameter_name: "restrict_end",
+                parameter_option: end_date,
+            };
+
+            Ok((restrict_begin, restrict_end))
+        } else {
+            let error = String::from("Process_date method failed");
+
+            Err(error)
+        }
+    }
+
     fn process_thing(self) -> Result<QueryParameter<&'static str>, String> {
         if let RestrictData::Thing(thing) = self {
             let restrict_thing = QueryParameter {
