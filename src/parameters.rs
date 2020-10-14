@@ -37,6 +37,46 @@ pub enum RestrictData {
     Thingy(String),
 }
 
+impl RestrictData {
+    fn build_query_string(self) -> Vec<QueryParameter<String>> {
+        let mut query_container = Vec::new();
+        match self {
+            self::RestrictData::Date(begin_date, end_date) => {
+                let begin_date = QueryParameter {
+                    parameter_name: "restrict_begin",
+                    parameter_option: begin_date,
+                };
+        
+                let end_date = QueryParameter {
+                    parameter_name: "restrict_end",
+                    parameter_option: end_date,
+                };
+        
+                query_container.push(begin_date);
+                query_container.push(end_date);
+            },
+            self::RestrictData::Thing(thing) => {
+                let restrict_thing = QueryParameter {
+                    parameter_name: "restrict_thing",
+                    parameter_option: thing,
+                };
+
+                query_container.push(restrict_thing);
+            },
+            self::RestrictData::Thingy(thingy) => {
+                let restrict_thingy = QueryParameter {
+                    parameter_name: "restrict_thingy",
+                    parameter_option: thingy,
+                };
+
+                query_container.push(restrict_thingy);
+            },
+        }
+
+        query_container
+    }
+}
+
 // pub struct RestrictData {
 //     begin_date: &'static str,
 //     end_date: &'static str,
