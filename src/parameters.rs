@@ -207,6 +207,15 @@ impl Parameters {
             query_parameters.push(parameter_string);
         }
 
+        if self.restrict_kind.is_some() {
+            let parameter_struct = self.restrict_kind.unwrap();
+            let parameter_name = parameter_struct.parameter_name;
+            let parameter_option: &'static str = parameter_struct.parameter_option.into();
+            let parameter_string = format!("&{}={}", parameter_name, parameter_option.to_lowercase());
+
+            query_parameters.push(parameter_string);
+        }
+
         if self.restrict_thing.is_some() {
             let parameter_string = self.restrict_thing.unwrap().build_query_string();
 
