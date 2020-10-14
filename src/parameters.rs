@@ -166,6 +166,17 @@ impl RestrictOptions {
             parameter_option: option,
         }
     }
+
+    fn build_query_string(self) -> String {
+        let query_option: &'static str = self.into();
+        let query_struct = QueryParameter {
+            parameter_name: "restrict_kind",
+            parameter_option: query_option.to_lowercase(),
+        };
+        let query_string = format!("&{}={}", query_struct.parameter_name, query_struct.parameter_option);
+
+        query_string
+    }
 }
 
 pub struct QueryParameter<T> {
