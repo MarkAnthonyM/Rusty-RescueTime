@@ -141,7 +141,7 @@ pub struct QueryParameter<T> {
 }
 
 pub struct Parameters {
-    pub perspective: Option<QueryParameter<PerspectiveOptions>>,
+    pub perspective: Option<PerspectiveOptions>,
     pub resolution: Option<QueryParameter<ResolutionOptions>>,
     pub restrict_date: Option<RestrictData>,
     pub restrict_kind: Option<QueryParameter<RestrictOptions>>,
@@ -151,7 +151,7 @@ pub struct Parameters {
 
 impl Parameters {
     pub fn new(
-        perspective: Option<QueryParameter<PerspectiveOptions>>,
+        perspective: Option<PerspectiveOptions>,
         resolution: Option<QueryParameter<ResolutionOptions>>,
         restrict_date: Option<RestrictData>,
         restrict_kind: Option<QueryParameter<RestrictOptions>>,
