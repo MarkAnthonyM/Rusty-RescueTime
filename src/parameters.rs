@@ -101,6 +101,21 @@ impl RestrictData {
             Err(error)
         }
     }
+
+    fn process_thingy(self) -> Result<QueryParameter<&'static str>, String> {
+        if let RestrictData::Thingy(thingy) = self {
+            let restrict_thingy = QueryParameter {
+                parameter_name: "restrict_thingy",
+                parameter_option: thingy,
+            };
+    
+            let result = Ok(restrict_thingy);
+            result
+        } else {
+            let error = String::from("Process_thingy method failed");
+            Err(error)
+        }
+    }
 }
 
 // pub struct RestrictData {
