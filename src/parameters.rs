@@ -37,6 +37,18 @@ impl PerspectiveOptions {
             }
         }
     }
+
+    //TODO: This function might be redundant. Maybe be possible to move this logic to build_query_string method
+    fn format_query(self) -> String {
+        let query_option: &'static str = self.into();
+        let query_struct = QueryParameter {
+            parameter_name: "perspective",
+            parameter_option: query_option.to_lowercase(),
+        };
+        let query_string = format!("&{}={}", query_struct.parameter_name, query_struct.parameter_option);
+
+        query_string
+    }
 }
 
 #[derive(IntoStaticStr)]
