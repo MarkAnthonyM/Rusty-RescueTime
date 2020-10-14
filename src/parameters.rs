@@ -38,42 +38,33 @@ pub enum RestrictData {
 }
 
 impl RestrictData {
-    fn build_query_string(self) -> Vec<QueryParameter<&'static str>> {
-        let mut query_container = Vec::new();
+    fn build_query_string(self) -> String {
         match self {
-            self::RestrictData::Date(begin_date, end_date) => {
-                let begin_date = QueryParameter {
-                    parameter_name: "restrict_begin",
-                    parameter_option: begin_date,
-                };
-        
-                let end_date = QueryParameter {
-                    parameter_name: "restrict_end",
-                    parameter_option: end_date,
-                };
-        
-                query_container.push(begin_date);
-                query_container.push(end_date);
-            },
-            self::RestrictData::Thing(thing) => {
-                let restrict_thing = QueryParameter {
-                    parameter_name: "restrict_thing",
-                    parameter_option: thing,
-                };
+            RestrictData::Date(_, _) => {
+                let parameter_structs = self.process_date().unwrap();
+                let query_string = format!(
+                    "&{}={}&{}={}",
+                    parameter_structs.0.parameter_name,
+                    parameter_structs.0.parameter_option,
+                    parameter_structs.1.parameter_name,
+                    parameter_structs.1.parameter_option,
+                );
 
-                query_container.push(restrict_thing);
+                query_string
             },
-            self::RestrictData::Thingy(thingy) => {
-                let restrict_thingy = QueryParameter {
-                    parameter_name: "restrict_thingy",
-                    parameter_option: thingy,
-                };
+            RestrictData::Thing(_) => {
+                let parameter_struct = self.process_thing().unwrap();
+                let query_string = format!("&{}={}", parameter_struct.parameter_name, parameter_struct.parameter_option);
 
-                query_container.push(restrict_thingy);
+                query_string
             },
+            RestrictData::Thingy(_) => {
+                let parameter_struct = self.process_thingy().unwrap();
+                let query_string = format!("&{}={}", parameter_struct.parameter_name, parameter_struct.parameter_option);
+
+                query_string
+            }
         }
-
-        query_container
     }
 
     fn process_date(self) -> Result<(QueryParameter<&'static str>, QueryParameter<&'static str>), String> {
