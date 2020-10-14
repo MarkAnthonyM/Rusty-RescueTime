@@ -191,6 +191,7 @@ impl Parameters {
         }
     }
 
+    // Iterate through vector of parameter strings, concatenate snippets, and return full url query string
     pub fn construct_query(self, key: &String, format: String) -> String {
         let mut url = format!("https://www.rescuetime.com/anapi/data?key={}", key);
         let query_parameters = self.process_fields();
