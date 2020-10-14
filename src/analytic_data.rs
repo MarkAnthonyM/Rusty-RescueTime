@@ -32,6 +32,7 @@ struct SizeSix<T> {
     productivity: i32,
 }
 
+//TODO: Current method of deserialization feels too messy. Try to find A more concise way to work with json data
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(untagged)]
 enum QueryKind {
