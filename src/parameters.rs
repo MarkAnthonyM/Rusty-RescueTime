@@ -229,13 +229,9 @@ impl Parameters {
         }
 
         if self.restrict_thing.is_some() {
-            let restricted_data = self.restrict_thing.unwrap();
-            let parameter_struct = restricted_data.process_thing().unwrap();
-            let parameter_name = parameter_struct.parameter_name;
-            let parameter_option = parameter_struct.parameter_option;
-            let parameter_string = format!("&{}={}", parameter_name, parameter_option);
+            let parameter_string = self.restrict_thing.unwrap().build_query_string();
 
-            query_parameters.push(parameter_string)
+            query_parameters.push(parameter_string);
         }
 
         query_parameters
