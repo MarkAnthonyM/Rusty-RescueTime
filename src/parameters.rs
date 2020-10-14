@@ -235,10 +235,8 @@ impl Parameters {
         }
 
         if self.resolution.is_some() {
-            let parameter_struct = self.resolution.unwrap();
-            let parameter_name = parameter_struct.parameter_name;
-            let parameter_option: &'static str = parameter_struct.parameter_option.into();
-            let parameter_string = format!("&{}={}", parameter_name, parameter_option.to_lowercase());
+            let parameter_string = self.resolution.unwrap().build_query_string();
+
             query_parameters.push(parameter_string);
         }
 
