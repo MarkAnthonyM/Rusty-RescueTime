@@ -76,7 +76,7 @@ impl RestrictData {
         query_container
     }
 
-    fn process_data(self) -> Result<(QueryParameter<&'static str>, QueryParameter<&'static str>), String> {
+    fn process_date(self) -> Result<(QueryParameter<&'static str>, QueryParameter<&'static str>), String> {
         if let RestrictData::Date(begin_date, end_date) = self {
             let restrict_begin = QueryParameter {
                 parameter_name: "restrict_begin",
