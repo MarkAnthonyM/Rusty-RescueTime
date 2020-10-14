@@ -223,15 +223,9 @@ impl Parameters {
         }
 
         if self.restrict_date.is_some() {
-            let restricted_data = self.restrict_date.unwrap();
-            let parameter_container = restricted_data.build_query_string();
+            let parameter_string = self.restrict_date.unwrap().build_query_string();
 
-            for parameter in parameter_container {
-                let parameter_name = parameter.parameter_name;
-                let parameter_option = parameter.parameter_option;
-                let parameter_string = format!("&{}={}", parameter_name, parameter_option);
-                query_parameters.push(parameter_string);
-            }
+            query_parameters.push(parameter_string);
         }
 
         if self.restrict_thing.is_some() {
