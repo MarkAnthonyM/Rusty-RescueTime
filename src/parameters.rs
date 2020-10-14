@@ -212,10 +212,8 @@ impl Parameters {
         let mut query_parameters = Vec::new();
 
         if self.perspective.is_some() {
-            let parameter_struct = self.perspective.unwrap();
-            let parameter_name = parameter_struct.parameter_name;
-            let parameter_option: &'static str = parameter_struct.parameter_option.into();
-            let parameter_string = format!("&{}={}", parameter_name, parameter_option.to_lowercase());
+            let parameter_string = self.perspective.unwrap().build_query_string();
+
             query_parameters.push(parameter_string);
         }
 
