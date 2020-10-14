@@ -32,9 +32,9 @@ impl ResolutionOptions {
 }
 
 pub enum RestrictData {
-    Date(String, String),
-    Thing(String),
-    Thingy(String),
+    Date(&'static str, &'static str),
+    Thing(&'static str),
+    Thingy(&'static str),
 }
 
 impl RestrictData {
