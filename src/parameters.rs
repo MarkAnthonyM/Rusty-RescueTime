@@ -177,7 +177,7 @@ pub struct Parameters {
     pub perspective: Option<PerspectiveOptions>,
     pub resolution: Option<ResolutionOptions>,
     pub restrict_date: Option<RestrictData>,
-    pub restrict_kind: Option<QueryParameter<RestrictOptions>>,
+    pub restrict_kind: Option<RestrictOptions>,
     pub restrict_thing: Option<RestrictData>,
     pub restrict_thingy: Option<RestrictData>,
 }
@@ -187,7 +187,7 @@ impl Parameters {
         perspective: Option<PerspectiveOptions>,
         resolution: Option<ResolutionOptions>,
         restrict_date: Option<RestrictData>,
-        restrict_kind: Option<QueryParameter<RestrictOptions>>,
+        restrict_kind: Option<RestrictOptions>,
         restrict_thing: Option<RestrictData>,
         restrict_thingy: Option<RestrictData>,
     ) -> Self {
