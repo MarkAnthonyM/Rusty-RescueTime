@@ -55,6 +55,18 @@ impl ResolutionOptions {
             parameter_option: option,
         }
     }
+
+    //TODO: Find way to implement this as a generic trait to cut down on code repetition
+    fn format_query(self) -> String {
+        let query_option: &'static str = self.into();
+        let query_struct = QueryParameter {
+            parameter_name: "resolution_time",
+            parameter_option: query_option.to_lowercase(),
+        };
+        let query_string = format!("&{}={}", query_struct.parameter_name, query_struct.parameter_option);
+
+        query_string
+    }
 }
 
 pub enum RestrictData {
