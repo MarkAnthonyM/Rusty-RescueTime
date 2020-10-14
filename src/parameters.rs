@@ -56,6 +56,11 @@ impl ResolutionOptions {
         }
     }
 
+    // Build string that queries for resolution information
+    fn build_query_string(self) -> String {
+        self.format_query()
+    }
+
     //TODO: Find way to implement this as a generic trait to cut down on code repetition
     fn format_query(self) -> String {
         let query_option: &'static str = self.into();
