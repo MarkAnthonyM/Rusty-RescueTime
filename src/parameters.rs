@@ -213,6 +213,12 @@ impl Parameters {
             query_parameters.push(parameter_string);
         }
 
+        if self.restrict_thingy.is_some() {
+            let parameter_string = self.restrict_thingy.unwrap().build_query_string();
+
+            query_parameters.push(parameter_string);
+        }
+
         query_parameters
     }
 }
