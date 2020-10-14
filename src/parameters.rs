@@ -5,13 +5,6 @@ pub enum PerspectiveOptions {
 }
 
 impl PerspectiveOptions {
-    pub fn new(option: PerspectiveOptions) -> QueryParameter<PerspectiveOptions> {
-        QueryParameter {
-            parameter_name: "perspective",
-            parameter_option: option,
-        }
-    }
-
     fn build_query_string(self) -> String {
         self.format_query()
     }
@@ -39,13 +32,6 @@ pub enum ResolutionOptions {
 }
 
 impl ResolutionOptions {
-    pub fn new(option: ResolutionOptions) -> QueryParameter<ResolutionOptions> {
-        QueryParameter {
-            parameter_name: "resolution_time",
-            parameter_option: option,
-        }
-    }
-
     // Build string that queries for resolution information
     fn build_query_string(self) -> String {
         self.format_query()
@@ -160,13 +146,6 @@ pub enum RestrictOptions {
 }
 
 impl RestrictOptions {
-    pub fn new(option: RestrictOptions) -> QueryParameter<RestrictOptions> {
-        QueryParameter {
-            parameter_name: "restrict_kind",
-            parameter_option: option,
-        }
-    }
-
     fn build_query_string(self) -> String {
         let query_option: &'static str = self.into();
         let query_struct = QueryParameter {
