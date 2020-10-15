@@ -37,7 +37,7 @@ struct SizeSix<T> {
 #[serde(untagged)]
 enum QueryKind {
     SizeFourInt(SizeFour<i32, i32>),
-    SizeFourMixed(SizeFour<i32, String>),
+    SizeFourMixedInt(SizeFour<i32, String>),
     SizeFourMixedString(SizeFour<String, i32>),
     SizeFourString(SizeFour<String, String>),
     SizeSevenInt(SizeSeven<i32>),
