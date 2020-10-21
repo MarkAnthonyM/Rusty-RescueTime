@@ -139,10 +139,11 @@ impl RestrictData {
 
 #[derive(IntoStaticStr)]
 pub enum RestrictOptions {
-    Category,
     Activity,
-    Productivity,
+    Category,
     Document,
+    Overview,
+    Productivity,
 }
 
 impl RestrictOptions {
