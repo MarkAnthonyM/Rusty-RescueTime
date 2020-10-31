@@ -5,10 +5,10 @@ use serde::{ Deserialize, Serialize };
 //TODO: Evaulate other possible options of modeling structures for data deserialization
 #[derive(Debug, Deserialize, Serialize)]
 pub struct SizeFour<T, U> {
-    perspective: T,
-    time_spent: i32,
-    number_of_people: i32,
-    restrict_kind: U,
+    pub perspective: T,
+    pub time_spent: i32,
+    pub number_of_people: i32,
+    pub restrict_kind: U,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
