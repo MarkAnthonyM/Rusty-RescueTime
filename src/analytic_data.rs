@@ -24,12 +24,12 @@ pub struct SizeSeven<T> {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct SizeSix<T> {
-    perspective: T,
-    time_spent: i32,
-    number_of_people: i32,
-    activity: String,
-    category: String,
-    productivity: i32,
+    pub perspective: T,
+    pub time_spent: i32,
+    pub number_of_people: i32,
+    pub activity: String,
+    pub category: String,
+    pub productivity: i32,
 }
 
 //TODO: Current method of deserialization feels too messy. Try to find A more concise way to work with json data
