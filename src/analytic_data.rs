@@ -4,7 +4,7 @@ use serde::{ Deserialize, Serialize };
 // Struct represents individual cell data related to the row_headers field of the AnalyticData struct.
 //TODO: Evaulate other possible options of modeling structures for data deserialization
 #[derive(Debug, Deserialize, Serialize)]
-struct SizeFour<T, U> {
+pub struct SizeFour<T, U> {
     perspective: T,
     time_spent: i32,
     number_of_people: i32,
@@ -12,7 +12,7 @@ struct SizeFour<T, U> {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-struct SizeSeven<T> {
+pub struct SizeSeven<T> {
     perspective: T,
     time_spent: i32,
     number_of_people: i32,
@@ -23,7 +23,7 @@ struct SizeSeven<T> {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-struct SizeSix<T> {
+pub struct SizeSix<T> {
     perspective: T,
     time_spent: i32,
     number_of_people: i32,
@@ -35,7 +35,7 @@ struct SizeSix<T> {
 //TODO: Current method of deserialization feels too messy. Try to find A more concise way to work with json data
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(untagged)]
-enum QueryKind {
+pub enum QueryKind {
     SizeFourInt(SizeFour<i32, i32>),
     SizeFourMixedInt(SizeFour<i32, String>),
     SizeFourMixedString(SizeFour<String, i32>),
@@ -49,9 +49,9 @@ enum QueryKind {
 // Struct represents data fetched from RescueTime analytic data API endpoint
 #[derive(Debug, Deserialize, Serialize)]
 pub struct AnalyticData {
-    notes: String,
-    row_headers: Vec<String>,
-    rows: Vec<QueryKind>,
+    pub notes: String,
+    pub row_headers: Vec<String>,
+    pub rows: Vec<QueryKind>,
 
 }
 
