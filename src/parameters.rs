@@ -50,11 +50,10 @@ impl ResolutionOptions {
     }
 }
 
-//TODO: Might have to change types to fields to String
 pub enum RestrictData {
-    Date(&'static str, &'static str),
+    Date(String, String),
     Thing(String),
-    Thingy(&'static str),
+    Thingy(String),
 }
 
 impl RestrictData {
@@ -87,7 +86,7 @@ impl RestrictData {
         }
     }
 
-    fn process_date(self) -> Result<(QueryParameter<&'static str>, QueryParameter<&'static str>), String> {
+    fn process_date(self) -> Result<(QueryParameter<String>, QueryParameter<String>), String> {
         if let RestrictData::Date(begin_date, end_date) = self {
             let restrict_begin = QueryParameter {
                 parameter_name: "restrict_begin",
@@ -122,7 +121,7 @@ impl RestrictData {
         }
     }
 
-    fn process_thingy(self) -> Result<QueryParameter<&'static str>, String> {
+    fn process_thingy(self) -> Result<QueryParameter<String>, String> {
         if let RestrictData::Thingy(thingy) = self {
             let restrict_thingy = QueryParameter {
                 parameter_name: "restrict_thingy",
