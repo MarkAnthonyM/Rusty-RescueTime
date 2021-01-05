@@ -1,3 +1,4 @@
+use chrono::naive::NaiveDateTime;
 use crate::parameters::Parameters;
 use serde::{ Deserialize, Serialize };
 
@@ -43,7 +44,8 @@ pub enum QueryKind {
     SizeSevenInt(SizeSeven<i32>),
     SizeSevenString(SizeSeven<String>),
     SizeSixInt(SizeSix<i32>),
-    SizeSixString(SizeSix<String>),
+    // SizeSixString(SizeSix<String>),
+    SizeSixString(SizeSix<NaiveDateTime>),
 }
 
 // Struct represents data fetched from RescueTime analytic data API endpoint
