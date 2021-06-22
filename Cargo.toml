@@ -3,6 +3,10 @@ name = "rusty-rescuetime"
 version = "0.1.0"
 authors = ["MarkAnthonyM <MarkAnthonyMartinez9@gmail.com>"]
 edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "An interface over the RescueTime API"
+repository = "https://github.com/MarkAnthonyM/Rusty-RescueTime"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
