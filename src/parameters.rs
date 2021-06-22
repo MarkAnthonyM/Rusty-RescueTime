@@ -16,7 +16,10 @@ impl PerspectiveOptions {
             parameter_name: "perspective",
             parameter_option: query_option.to_lowercase(),
         };
-        let query_string = format!("&{}={}", query_struct.parameter_name, query_struct.parameter_option);
+        let query_string = format!(
+            "&{}={}",
+            query_struct.parameter_name, query_struct.parameter_option
+        );
 
         query_string
     }
@@ -44,7 +47,10 @@ impl ResolutionOptions {
             parameter_name: "resolution_time",
             parameter_option: query_option.to_lowercase(),
         };
-        let query_string = format!("&{}={}", query_struct.parameter_name, query_struct.parameter_option);
+        let query_string = format!(
+            "&{}={}",
+            query_struct.parameter_name, query_struct.parameter_option
+        );
 
         query_string
     }
@@ -70,16 +76,22 @@ impl RestrictData {
                 );
 
                 query_string
-            },
+            }
             RestrictData::Thing(_) => {
                 let parameter_struct = self.process_thing().unwrap();
-                let query_string = format!("&{}={}", parameter_struct.parameter_name, parameter_struct.parameter_option);
+                let query_string = format!(
+                    "&{}={}",
+                    parameter_struct.parameter_name, parameter_struct.parameter_option
+                );
 
                 query_string
-            },
+            }
             RestrictData::Thingy(_) => {
                 let parameter_struct = self.process_thingy().unwrap();
-                let query_string = format!("&{}={}", parameter_struct.parameter_name, parameter_struct.parameter_option);
+                let query_string = format!(
+                    "&{}={}",
+                    parameter_struct.parameter_name, parameter_struct.parameter_option
+                );
 
                 query_string
             }
@@ -112,7 +124,7 @@ impl RestrictData {
                 parameter_name: "restrict_thing",
                 parameter_option: thing,
             };
-    
+
             let result = Ok(restrict_thing);
             result
         } else {
@@ -127,7 +139,7 @@ impl RestrictData {
                 parameter_name: "restrict_thingy",
                 parameter_option: thingy,
             };
-    
+
             let result = Ok(restrict_thingy);
             result
         } else {
@@ -153,7 +165,10 @@ impl RestrictOptions {
             parameter_name: "restrict_kind",
             parameter_option: query_option.to_lowercase(),
         };
-        let query_string = format!("&{}={}", query_struct.parameter_name, query_struct.parameter_option);
+        let query_string = format!(
+            "&{}={}",
+            query_struct.parameter_name, query_struct.parameter_option
+        );
 
         query_string
     }

@@ -1,6 +1,6 @@
-use chrono::naive::NaiveDateTime;
 use crate::parameters::Parameters;
-use serde::{ Deserialize, Serialize };
+use chrono::naive::NaiveDateTime;
+use serde::{Deserialize, Serialize};
 
 // Struct represents individual cell data related to the row_headers field of the AnalyticData struct.
 //TODO: Evaulate other possible options of modeling structures for data deserialization
@@ -54,18 +54,21 @@ pub struct AnalyticData {
     pub notes: String,
     pub row_headers: Vec<String>,
     pub rows: Vec<QueryKind>,
-
 }
 
 //TODO: Explore generic struct
 
 impl AnalyticData {
     // Send request to RescueTime analytic data API endpoint, and return deserialized response.
-    pub fn fetch(key: &String, param: Parameters, format: String) -> Result<AnalyticData, reqwest::Error> {
+    pub fn fetch(
+        key: &String,
+        param: Parameters,
+        format: String,
+    ) -> Result<AnalyticData, reqwest::Error> {
         let request_url = param.construct_query(key, format);
 
         let response = reqwest::blocking::get(&request_url)?.json::<AnalyticData>();
-        
+
         response
     }
 }

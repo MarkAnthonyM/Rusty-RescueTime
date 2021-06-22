@@ -1,5 +1,5 @@
 use reqwest;
-use serde::{ Deserialize, Serialize };
+use serde::{Deserialize, Serialize};
 
 // Structure represents summary data of individual days.
 #[derive(Debug, Deserialize, Serialize)]
@@ -68,12 +68,15 @@ pub struct DailySummary {
 impl DailySummary {
     //TODO: Fix up code comment here
     // Fetch summary of time data logged during the previous two weeks from RescueTime daily_summary API. Does not include the current day.
-    //TODO: Currently takes API Key as an argument. Okay for development, but need to eventually switch to Oauth2  
+    //TODO: Currently takes API Key as an argument. Okay for development, but need to eventually switch to Oauth2
     pub fn fetch(key: &String) -> Result<Vec<DailySummary>, reqwest::Error> {
-        let request_url = format!("https://www.rescuetime.com/anapi/daily_summary_feed?key={}", key);
+        let request_url = format!(
+            "https://www.rescuetime.com/anapi/daily_summary_feed?key={}",
+            key
+        );
 
         //TODO: Currently using blocking get method. Should switch to async eventually.
-        // Fetch daily summary data from rescuetime api and store in Vector wrapped in Result type.  
+        // Fetch daily summary data from rescuetime api and store in Vector wrapped in Result type.
         let response = reqwest::blocking::get(&request_url)?.json::<Vec<DailySummary>>();
 
         response
